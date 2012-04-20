@@ -1,0 +1,3 @@
+Matlab S function used for plotting simulink signals during simulation.
+
+Acts as a replacement for Scope block, but with more customization options.
