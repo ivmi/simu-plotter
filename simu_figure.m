@@ -1,0 +1,155 @@
+function simu_figure(varargin)
+    %% main function
+    action = varargin{1};
+    
+    switch action
+        
+        case 'open',
+            % Open the dialog or brings existing dialog to foreground
+            %
+            % Called when double clicking on the block or via open_system
+            %     set_param(gcb,'OpenFcn','sfcndemo_hg_gui_m(''open'',gcbh)');
+            %
+            b = varargin{2};
+            i_show(b);
+            
+        case {'destroy','delete','close','parentclose'},
+            %
+            % Destroy the dialog.
+            %
+            % destroy:
+            %   Called when block finally gets destroyed (e.g., model closed).
+            %     set_param(gcb,'DestroyFcn','sfcndemo_hg_gui_m(''destroy'',gcbh)');
+            %
+            % delete
+            %   Called when the block gets deleted (e.g., click on it & hit del).
+            %   he block does not necessarily get destroyed when this happens (it
+            %   moves to the undo area).
+            %     set_param(gcb,'DeleteFcn','sfcndemo_hg_gui_m(''delete'',gcbh)');
+            %
+            % close
+            %   Called when the close_system command is invoked on the block.
+            %     set_param(gcb,'CloseFcn','sfcndemo_hg_gui_m(''close'',gcbh)');
+            %
+            % parentclose
+            %   Called when the block is insided a subsystem and the subsystem is
+            %   closed.
+            %     set_param(gcb,'ParentCloseFcn','sfcndemo_hg_gui_m(''parentclose'',gcbh)');
+            %
+            b    = varargin{2};
+            hFig = i_findfig(b);
+            
+            if ~isempty(hFig),
+                delete(hFig);
+            end
+            
+        case 'namechange',
+            %
+            % Update the name on the dialog.
+            %
+            % Called when:
+            %   o the model is saved under a new name
+            %   o the block name is changed
+            %   o an ancestor subsystem of the block has its name changed (i.e.,
+            %     the full block path of the name has changed).
+            %
+            %     set_param(gcb,'NameChangeFcn','sfcndemo_hg_gui_m(''namechange'',gcbh)');
+            %
+            b    = varargin{2};
+            hFig = i_findfig(b);
+            
+            set(hFig,'name',getfullname(b));
+            
+        case 'settag',
+            %
+            % This is the callback for the edit box in the GUI.  This is where we
+            % actually set new block properties as directed by the GUI.
+            %
+            hFig = varargin{2};
+            i_settag(hFig);
+            
+        otherwise,
+            error('unhandled action');
+    end
+end
+
+function i_show(b)
+    %% Function: i_show =============================================================
+    %   Build a new dialog or bring an existing one to the foreground.  The dialogs
+    %   tag will be the blocks handle.
+    
+    hStr = num2str(b);
+    hFig = i_findfig(b);
+    ports = get(b, 'Ports');
+    nPorts = ports(1);
+    
+    
+    if ~isempty(hFig),
+        %
+        % bring it to the foreground
+        %
+        figure(hFig);
+    else
+        %
+        % create the figure
+        %
+        hFig = figure( ...
+            'IntegerHandle',    'off', ...
+            'Name',             getfullname(b), ...
+            'Menubar',          'none', ...
+            'NumberTitle',      'off', ...
+            'HandleVisibility', 'on', ...
+            ...%          'Position',         [956 843 600 75], ...
+            'Tag',              hStr, ...
+            'UserData',         b);
+        
+        for iPort = 1:nPorts
+            ha1 = axes('Parent',hFig,...
+                'HandleVisibility','callback',...
+                'Unit','normalized',...
+                'OuterPosition',[0 (nPorts-iPort)/nPorts 1 1/nPorts],...
+                'Xlim',[0 1],...
+                'YLim',[-1 1],...
+                'XGrid', 'On',...
+                'YGrid', 'On',...
+                'Tag','plotAxes1');
+            colourOrder = get(ha1,'ColorOrder');
+
+            sig_names = get(b, 'InputSignalNames');
+            sig_names = regexp(sig_names{1}, '\W+', 'split');
+            sig_names(strcmp('',sig_names)) = [];
+            
+            for iSig = 1:length(sig_names)
+                l1 = line('Parent',ha1,...
+                    'XData',[0],...
+                    'YData',[0],...
+                    'Color',colourOrder(mod(iSig,size(colourOrder,1))+1,:),...
+                    'EraseMode','none',...
+                    'Tag',sig_names{iSig},...
+                    'LineWidth', 2);
+            end
+            legend(ha1, sig_names);
+        end
+    end
+end
+
+function i_settag(hFig)
+    % Function: i_settag ===========================================================
+    % Abstract:
+    %   Set the tag on the block and echo the new tag to the command line.
+    
+    b   = get(hFig,'UserData');
+    str = get(gcbo,'String');
+    
+    set_param(b,'param', str);
+    display(['New parameter set to: ' str]);
+end
+
+function h = i_findfig(b)
+    %% Function: i_findfig ===========================================================
+    % Abstract:
+    %   Get the handle figure, if it exists.
+    
+    hStr = num2str(b);
+    h    = findobj(allchild(0),'type','figure','tag',hStr);
+end

@@ -1,7 +1,7 @@
 function msfcn_times_two(block)
 % Level-2 MATLAB file S-Function for times two demo.
 %   Copyright 1990-2009 The MathWorks, Inc.
-%   $Revision: 1.1.6.2 $ 
+%   $Revis  ion: 1.1.6.2 $ 
 
   setup(block);
   
@@ -19,7 +19,7 @@ function setup(block)
 
   % parameters
   block.NumDialogPrms     = 2;
-  block.DialogPrmsTunable = {'Nontunable'};
+  block.DialogPrmsTunable = {'Nontunable', 'Nontunable'};
   
   
   % Set block sample time to inherited
@@ -56,18 +56,28 @@ function Start(block)
   
   %get input signals
   for iPort=1:block.NumInputPorts()
-    for iIn=1:block.
   
   end
-
-  set_param(gcb, 'UserData', work); 
+  
+  % TODO
+  ports(1).signals(1).name='Signal 1';
+  ports(1).signals(2).name='Signal 2';
+  
+  %set_param(gcb, 'UserData', work); 
 end
   
 %endfunction
 
 function Output(block)
 %% Output
-  mts = block.IsMajorTimeStep;
-  block.OutputPort(1).Data = 2*block.InputPort(1).Data;
+  % do only major time steps
+  if ~block.IsMajorTimeStep()
+    return;
+  end
+  
+  % add data to buffer
+  
+  
+  %block.OutputPort(1).Data = 2*block.InputPort(1).Data;
 end  
 

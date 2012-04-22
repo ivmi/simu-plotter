@@ -1,7 +1,7 @@
 function msfcn_times_two(block)
 % Level-2 MATLAB file S-Function for times two demo.
 %   Copyright 1990-2009 The MathWorks, Inc.
-%   $Revision: 1.1.6.2 $ 
+%   $Revis  ion: 1.1.6.2 $ 
 
   setup(block);
   
@@ -63,7 +63,7 @@ function Start(block)
   ports(1).signals(1).name='Signal 1';
   ports(1).signals(2).name='Signal 2';
   
-  %set_param(gcb, 'UserData', work); 
+  set_param(gcb, 'UserData', work); 
 end
   
 %endfunction
@@ -75,9 +75,9 @@ function Output(block)
     return;
   end
   
+  % add data to buffer
   
   
-    
   %block.OutputPort(1).Data = 2*block.InputPort(1).Data;
 end  
 

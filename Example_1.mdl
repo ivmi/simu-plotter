@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.14"
+    ComputedModelVersion    "1.19"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Ivan"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Apr 22 12:15:00 2012"
-  RTWModifiedTimeStamp	  256992259
-  ModelVersionFormat	  "1.%<AutoIncrement:14>"
+  LastModifiedDate	  "Sun Apr 22 17:41:25 2012"
+  RTWModifiedTimeStamp	  257016653
+  ModelVersionFormat	  "1.%<AutoIncrement:19>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -692,7 +692,7 @@ Model {
   }
   System {
     Name		    "Example_1"
-    Location		    [610, 241, 1146, 530]
+    Location		    [610, 241, 1350, 530]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -722,29 +722,6 @@ Model {
 	RTWStorageClass		"Auto"
 	DataLoggingNameMode	"SignalName"
       }
-    }
-    Block {
-      BlockType		      "M-S-Function"
-      Name		      "Level-2 MATLAB\nS-Function"
-      SID		      "6"
-      Ports		      [1]
-      Position		      [385, 139, 440, 171]
-      FunctionName	      "simu_plot"
-      Parameters	      "decim, T_refresh"
-      MaskPromptString	      "Decimation|Redraw time"
-      MaskStyleString	      "edit,edit"
-      MaskVariables	      "decim=@1;T_refresh=@2;"
-      MaskTunableValueString  "on,on"
-      MaskCallbackString      "|"
-      MaskEnableString	      "on,on"
-      MaskVisibilityString    "on,on"
-      MaskToolTipString	      "on,on"
-      MaskIconFrame	      on
-      MaskIconOpaque	      on
-      MaskIconRotate	      "none"
-      MaskPortRotate	      "default"
-      MaskIconUnits	      "autoscale"
-      MaskValueString	      "1|1"
     }
     Block {
       BlockType		      Mux
@@ -779,6 +756,37 @@ Model {
       }
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
+    }
+    Block {
+      BlockType		      "M-S-Function"
+      Name		      "Scope 1"
+      SID		      "6"
+      Ports		      [1]
+      Position		      [385, 139, 440, 171]
+      UserDataPersistent      on
+      DeleteFcn		      "simu_figure('delete',gcbh)"
+      NameChangeFcn	      "simu_figure('namechange',gcbh)"
+      DestroyFcn	      "simu_figure('destroy',gcbh)"
+      OpenFcn		      "simu_figure('open',gcbh)"
+      CloseFcn		      "simu_figure('close',gcbh)"
+      ParentCloseFcn	      "simu_figure('parentclose',gcbh)"
+      FunctionName	      "simu_plot"
+      Parameters	      "decim, T_refresh"
+      MaskPromptString	      "Decimation|Redraw time"
+      MaskStyleString	      "edit,edit"
+      MaskVariables	      "decim=@1;T_refresh=@2;"
+      MaskTunableValueString  "on,on"
+      MaskCallbackString      "|"
+      MaskEnableString	      "on,on"
+      MaskVisibilityString    "on,on"
+      MaskToolTipString	      "on,on"
+      MaskDisplay	      "disp('Simu-plot');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "1|1"
     }
     Block {
       BlockType		      Sin
@@ -830,7 +838,7 @@ Model {
       Labels		      [0, 0; 0, 0]
       SrcBlock		      "Mux"
       SrcPort		      1
-      DstBlock		      "Level-2 MATLAB\nS-Function"
+      DstBlock		      "Scope 1"
       DstPort		      1
     }
   }
