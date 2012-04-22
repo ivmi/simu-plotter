@@ -1,0 +1,7 @@
+function [ output_args ] = simu_figure( input_args )
+%% Creates figure for simu-plot
+% Creates figure for plotting, if it does not already exist.
+
+
+end
+
