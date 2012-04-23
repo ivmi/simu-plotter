@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.19"
+    ComputedModelVersion    "1.26"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Ivan"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Apr 22 17:41:25 2012"
+  LastModifiedDate	  "Mon Apr 23 22:08:50 2012"
   RTWModifiedTimeStamp	  257016653
-  ModelVersionFormat	  "1.%<AutoIncrement:19>"
+  ModelVersionFormat	  "1.%<AutoIncrement:26>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -706,12 +706,12 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "7"
+    SIDHighWatermark	    "10"
     Block {
       BlockType		      Gain
       Name		      "Gain"
       SID		      "3"
-      Position		      [200, 65, 230, 95]
+      Position		      [160, 25, 190, 55]
       Gain		      "2"
       ParamDataTypeStr	      "Inherit: Inherit via internal rule"
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -728,7 +728,7 @@ Model {
       Name		      "Mux"
       SID		      "5"
       Ports		      [2, 1]
-      Position		      [320, 136, 325, 174]
+      Position		      [280, 96, 285, 134]
       ShowName		      off
       Inputs		      "2"
       DisplayOption	      "bar"
@@ -745,7 +745,7 @@ Model {
       Name		      "Scope"
       SID		      "2"
       Ports		      [1]
-      Position		      [320, 64, 350, 96]
+      Position		      [280, 24, 310, 56]
       Floating		      off
       Location		      [188, 390, 512, 629]
       Open		      off
@@ -762,8 +762,9 @@ Model {
       Name		      "Scope 1"
       SID		      "6"
       Ports		      [1]
-      Position		      [385, 139, 440, 171]
+      Position		      [345, 99, 400, 131]
       UserDataPersistent      on
+      UserData		      "DataTag0"
       DeleteFcn		      "simu_figure('delete',gcbh)"
       NameChangeFcn	      "simu_figure('namechange',gcbh)"
       DestroyFcn	      "simu_figure('destroy',gcbh)"
@@ -786,14 +787,14 @@ Model {
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "1|1"
+      MaskValueString	      "1|2"
     }
     Block {
       BlockType		      Sin
       Name		      "Sine Wave"
       SID		      "1"
       Ports		      [0, 1]
-      Position		      [75, 65, 105, 95]
+      Position		      [35, 25, 65, 55]
       SampleTime	      "0"
       Port {
 	PortNumber		1
@@ -801,6 +802,19 @@ Model {
 	RTWStorageClass		"Auto"
 	DataLoggingNameMode	"SignalName"
       }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Soft Real Time"
+      SID		      "10"
+      Ports		      []
+      Position		      [38, 185, 125, 216]
+      ShowName		      off
+      LibraryVersion	      "1.9"
+      SourceBlock	      "utility/Soft Real Time"
+      SourceType	      ""
+      x			      "1"
+      enabled		      "1"
     }
     Line {
       Name		      "in"
@@ -841,5 +855,203 @@ Model {
       DstBlock		      "Scope 1"
       DstPort		      1
     }
+  }
+}
+MatData {
+  NumRecords		  1
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    ^#\\   8    (     @         %    \"     $    !     0         %  0 $     $    P    8G5F9"
+    "F5R             &)U9F9E<F5D4V%M<&QE<P!T,0                  #@   . ^   &    \"     $         !0    @    !     0    "
+    "$         #@   + ^   &    \"     8         !0    @    \"    Z ,   $         \"0   ( ^  \"1]RW/WUCK/Y'W+<_?6/L_(K&T"
+    "5RZ YS\\BL;17+H#W/]W2RD*DM^(_W=+*0J2W\\C^1+PPV)F#:/Y$O##8F8.H_J9O5':B'S#^IF]4=J(?</^)#1*BZ7ID_XD-$J+I>J3^JMA4(5U#&"
+    "OZJV%0A74-:_QVVSX&1TU[_';;/@9'3GOU)/\\_6>:.&_4D_S]9YH\\;\\H,^GW=AKN/R@SZ?=V&OX_1[31ZO88[3]'M-'J]AC]/PK7JMDSW^D_\"M"
+    ">JV3/?^3\\                                                                                                        "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                               #@ "
+    "  #@    &    \"     8         !0    @    !     0    $         \"0    @            B0 X   !@    !@    @    &       "
+    "   4    (     0    8    !          D    P          !PGT         00        #=         -D         (0-OY?FJ\\Y$E "
   }
 }
